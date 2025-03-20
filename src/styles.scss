@@ -1,0 +1,112 @@
+.dashboard-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    height: 90vh; /* Full height of the viewport */
+  }
+
+  .custom-grid {
+    height: 100% !important;
+  }
+  
+  .grid-section {
+    flex: 1;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .form-section {
+    flex: 1;
+    width: 50%;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .toolbar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .ag-grid-angular {
+    flex: 1; /* Makes grid take all available height */
+    width: 100%;
+    height: 100%; /* Ensure grid is full height */
+  }
+  
+  .patient-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1; /* Makes form stretch to full height */
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  label {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  input, select, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  .form-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: auto; /* Push buttons to bottom */
+  }
+  
+  button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .save-btn {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .save-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .reset-btn {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .reset-btn:hover {
+    background-color: #b52b3b;
+  }
+  
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

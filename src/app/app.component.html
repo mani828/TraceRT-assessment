@@ -1,0 +1,82 @@
+<div class="dashboard-container">
+  
+  <!-- Left: Grid Section -->
+  <div class="grid-section">
+    <h2>🏥 Patient Management Dashboard</h2>
+    
+    <!-- Toolbar: Search & Buttons -->
+    <div class="toolbar">
+      <input type="text" (input)="onQuickFilterInput($event)" placeholder="🔍 Search Patients..." />
+      <button (click)="getSelectedRows()">Get Selected</button>
+      <button (click)="toggleColumns()">Toggle Gender Column</button>
+    </div>
+
+    <!-- AG Grid Table -->
+    <ag-grid-angular
+      style="width: 100%; height: 400px;"
+      class="ag-theme-alpine custom-grid"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      rowSelection="single"
+      [pagination]="true"
+      [paginationPageSize]="20"
+      (gridReady)="onGridReady($event)"
+      (rowSelected)="onRowSelected($event)">
+    </ag-grid-angular>
+  </div>
+
+  <!-- Right: Form Section -->
+  <div class="form-section">
+    <h3>{{ isEditing ? '📝 Update Patient' : '➕ Add New Patient' }}</h3>
+
+    <form class="patient-form">
+      <div class="form-group">
+        <label>ID</label>
+        <input type="number" [(ngModel)]="selectedPatient.id" name="id" placeholder="Enter ID" required />
+      </div>
+
+      <div class="form-group">
+        <label>Rule</label>
+        <input [(ngModel)]="selectedPatient.ruleName" name="ruleName" placeholder="Enter Name" required />
+      </div>
+
+      <div class="form-group">
+        <label>Active</label>
+        <input [(ngModel)]="selectedPatient.active" name="active" required />
+      </div>
+
+      <div class="form-group">
+        <label>Type</label>
+        <input [(ngModel)]="selectedPatient.type" name="type" required />
+      </div>
+
+      <div class="form-group">
+        <label>Sub Type</label>
+        <input [(ngModel)]="selectedPatient.subType" name="subType" required />
+      </div>
+
+      <div class="form-group">
+        <label>Impacted</label>
+        <input type="number" [(ngModel)]="selectedPatient.impacted" name="impacted" required />
+      </div>
+
+      <div class="form-group">
+        <label>Scheduled</label>
+        <input [(ngModel)]="selectedPatient.scheduled" name="scheduled" />
+      </div>
+
+
+
+      <div class="form-group">
+        <label>Last Scheduled Date</label>
+        <input [(ngModel)]="selectedPatient.lastScheduledDate" name="lastScheduledDate" />
+      </div>
+      <!-- Action Buttons -->
+      <div class="form-buttons">
+        <button class="save-btn" (click)="savePatient()">{{ isEditing ? 'Update' : 'Save' }}</button>
+        <button class="reset-btn" (click)="resetForm()" type="button">Reset</button>
+      </div>
+    </form>
+  </div>
+
+</div>
