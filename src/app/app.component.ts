@@ -57,16 +57,14 @@ export class AppComponent {
       const selectedNodes = this.gridApi.getSelectedNodes();
       const selectedData = selectedNodes.map(node => node.data);
       console.log('📌 Selected Rows:', selectedData);
-      alert(`Selected Patients: ${selectedData.map(d => d.name).join(', ')}`);
     }
   }
 
   toggleColumns() {
     this.showGenderColumn = !this.showGenderColumn;
-
     if (this.gridApi) {
       this.gridApi.applyColumnState({
-        state: [{ colId: 'gender', hide: !this.showGenderColumn }],
+        state: [{ colId: 'active', hide: !this.showGenderColumn }],
         applyOrder: true
       });
     }
